@@ -119,7 +119,7 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <Card className="border-border shadow-elegant">
+          <Card id="contact" className="border-border shadow-elegant">
             <CardHeader className="text-center">
               <CardTitle className="text-3xl sm:text-4xl font-bold mb-2">
                 Ready to Get <span className="bg-gradient-primary bg-clip-text text-transparent">Started?</span>

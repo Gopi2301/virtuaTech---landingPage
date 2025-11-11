@@ -5,6 +5,7 @@ import ServiceTestimonials from "@/components/ServiceTestimonials";
 import ServiceContactForm from "@/components/ServiceContactForm";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import { Brain, CheckCircle2, Target, Zap, Shield, Code, Database, Cloud, Cpu } from "lucide-react";
+import { scrollToContact } from '@/utils/scrollToContact';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import aiAnalyticsImg from "@/assets/projects/ai-analytics.jpg";
@@ -120,7 +121,7 @@ const AIDevelopment = () => {
               <p className="text-xl text-muted-foreground mb-8">
                 Cutting-edge AI and machine learning solutions to automate processes and unlock intelligent insights from your data.
               </p>
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={scrollToContact}>
                 Get Started
               </Button>
             </div>
