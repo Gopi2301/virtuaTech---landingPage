@@ -121,7 +121,16 @@ const IoT = () => {
               <p className="text-xl text-muted-foreground mb-8">
                 Internet of Things solutions connecting devices, collecting data, and enabling smart automation for your business.
               </p>
-              <Button variant="hero" size="lg" onClick={scrollToContact}>
+              <Button 
+                variant="hero" 
+                size="lg" 
+                onClick={() => {
+                  const contactSection = document.getElementById('service-contact-form');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Get Started
               </Button>
             </div>
@@ -184,7 +193,9 @@ const IoT = () => {
 
         <ServiceProjects projects={projects} />
         <ServiceTestimonials testimonials={testimonials} />
-        <ServiceContactForm serviceName="IoT Solutions" />
+        <div id="service-contact-form">
+          <ServiceContactForm serviceName="IoT Solutions" />
+        </div>
       </main>
       <Footer />
       <WhatsAppWidget />

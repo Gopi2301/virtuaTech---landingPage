@@ -5,27 +5,114 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { Loader2, CheckCircle } from "lucide-react";
+
+interface FormData {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}
 
 interface ServiceContactFormProps {
   serviceName: string;
 }
 
 const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     company: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: "", email: "", company: "", message: "" });
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Please fill in all required fields.",
+      });
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Please enter a valid email address.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://virtuagrid.com/api/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'gopinaths2301@gmail.com',
+          subject: `New ${serviceName} Inquiry from ${formData.name}`,
+          html: `
+            <h2>New ${serviceName} Inquiry</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Company:</strong> ${formData.company || 'Not provided'}</p>
+            <p><strong>Message:</strong></p>
+            <p>${formData.message.replace(/\n/g, '<br>')}</p>
+          `,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setIsSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: ""
+      });
+      
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully. We'll get back to you within 24 hours.",
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "There was an error sending your message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setIsSuccess(false), 3000);
+    }
   };
 
   return (
@@ -49,9 +136,10 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
                     <Input
                       id="name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={handleChange}
                       required
                       placeholder="John Doe"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="space-y-2">
@@ -60,9 +148,10 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
                       id="email"
                       type="email"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={handleChange}
                       required
                       placeholder="john@company.com"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -71,8 +160,9 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
                   <Input
                     id="company"
                     value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    onChange={handleChange}
                     placeholder="Your Company Name"
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="space-y-2">
@@ -80,14 +170,33 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
                   <Textarea
                     id="message"
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={handleChange}
                     required
                     placeholder="Tell us about your project requirements..."
                     rows={5}
+                    disabled={isSubmitting}
                   />
                 </div>
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  variant="hero" 
+                  size="lg" 
+                  className="w-full relative"
+                  disabled={isSubmitting || isSuccess}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : isSuccess ? (
+                    <>
+                      <CheckCircle className="mr-2 h-4 w-4" />
+                      Message Sent!
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </CardContent>
