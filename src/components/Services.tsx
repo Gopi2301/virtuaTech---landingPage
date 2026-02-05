@@ -8,37 +8,37 @@ const services = [
     icon: Brain,
     title: "AI Development",
     description: "Cutting-edge AI and machine learning solutions to automate processes and unlock intelligent insights from your data.",
-    link: "/services/ai-development",
+    link: "/ai-development-services-company",
   },
   {
     icon: Smartphone,
     title: "Mobile Apps",
     description: "Native and cross-platform mobile applications that deliver seamless experiences on iOS and Android.",
-    link: "/services/mobile-apps",
+    link: "/mobile-app-development",
   },
   {
     icon: Cloud,
     title: "Cloud Solutions",
     description: "Scalable cloud infrastructure and migration services to optimize your operations and reduce costs.",
-    link: "/services/cloud-solutions",
+    link: "/cloud-solutions-services-company",
   },
   {
     icon: ShoppingCart,
     title: "eCommerce",
     description: "End-to-end eCommerce solutions with payment integration, inventory management, and optimized user experiences.",
-    link: "/services/ecommerce",
+    link: "/ecommerce-solutions-services-company",
   },
   {
     icon: Radio,
     title: "IoT",
     description: "Internet of Things solutions connecting devices, collecting data, and enabling smart automation for your business.",
-    link: "/services/iot",
+    link: "/iot-solutions-services-company",
   },
   {
     icon: Code2,
     title: "Game Development",
     description: "Immersive gaming experiences built with cutting-edge engines and technologies for PC, console, and mobile platforms.",
-    link: "/services/game-development",
+    link: "/game-development-company",
   },
 ];
 
@@ -57,8 +57,8 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="border-border hover:border-primary/50 transition-all duration-300 hover:shadow-elegant group"
             >
               <CardHeader>

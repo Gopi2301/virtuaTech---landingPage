@@ -12,6 +12,7 @@ import fashionMarketplaceImg from "@/assets/projects/fashion-marketplace.jpg";
 import b2bWholesaleImg from "@/assets/projects/b2b-wholesale.jpg";
 import subscriptionBoxImg from "@/assets/projects/subscription-box.jpg";
 import ecommerceCoverImg from "@/assets/covers/ecommerce-cover.jpg";
+import { Helmet } from 'react-helmet-async';
 
 const ECommerce = () => {
   const projects = [
@@ -102,6 +103,33 @@ const ECommerce = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Ecommerce Solutions Services Company | Virtua Technologies</title>
+        <meta name="description" content="Ecommerce Solutions Services Company - End-to-end eCommerce development, payment integration, and inventory management." />
+        <link rel="canonical" href="https://virtuatechnologies.com.au/ecommerce-solutions-services-company" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://virtuatechnologies.com.au/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Ecommerce Solutions Services Company",
+                  "item": "https://virtuatechnologies.com.au/ecommerce-solutions-services-company"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       <Navigation />
       <main>
         {/* Hero Section */}

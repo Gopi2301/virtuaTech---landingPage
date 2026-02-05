@@ -12,6 +12,7 @@ import healthcareAppImg from "@/assets/projects/healthcare-app.jpg";
 import fitnessAppImg from "@/assets/projects/fitness-app.jpg";
 import deliveryAppImg from "@/assets/projects/delivery-app.jpg";
 import mobileAppsCoverImg from "@/assets/covers/mobile-apps-cover.jpg";
+import { Helmet } from 'react-helmet-async';
 
 const MobileApps = () => {
   const projects = [
@@ -102,6 +103,33 @@ const MobileApps = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Mobile App Development | Virtua Technologies</title>
+        <meta name="description" content="Mobile App Development Services - Native and cross-platform apps for iOS and Android tailored to your business." />
+        <link rel="canonical" href="https://virtuatechnologies.com.au/mobile-app-development" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://virtuatechnologies.com.au/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Mobile App Development",
+                  "item": "https://virtuatechnologies.com.au/mobile-app-development"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       <Navigation />
       <main>
         {/* Hero Section */}

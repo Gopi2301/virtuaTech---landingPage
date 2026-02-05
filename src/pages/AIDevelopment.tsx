@@ -12,6 +12,7 @@ import aiAnalyticsImg from "@/assets/projects/ai-analytics.jpg";
 import nlpChatbotImg from "@/assets/projects/nlp-chatbot.jpg";
 import computerVisionImg from "@/assets/projects/computer-vision.jpg";
 import aiCoverImg from "@/assets/covers/ai-development-cover.jpg";
+import { Helmet } from 'react-helmet-async';
 
 const AIDevelopment = () => {
   const projects = [
@@ -102,6 +103,33 @@ const AIDevelopment = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>AI Development Services Company | Virtua Technologies</title>
+        <meta name="description" content="AI Development Services Company - Custom AI solutions, machine learning models, and intelligent automation for your business." />
+        <link rel="canonical" href="https://virtuatechnologies.com.au/ai-development-services-company" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://virtuatechnologies.com.au/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "AI Development Services Company",
+                  "item": "https://virtuatechnologies.com.au/ai-development-services-company"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       <Navigation />
       <main>
         {/* Hero Section */}

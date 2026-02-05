@@ -12,6 +12,7 @@ import cloudMigrationImg from "@/assets/projects/cloud-migration.jpg";
 import serverlessPlatformImg from "@/assets/projects/serverless-platform.jpg";
 import multiRegionImg from "@/assets/projects/multi-region.jpg";
 import cloudCoverImg from "@/assets/covers/cloud-solutions-cover.jpg";
+import { Helmet } from 'react-helmet-async';
 
 const CloudSolutions = () => {
   const projects = [
@@ -102,6 +103,33 @@ const CloudSolutions = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Cloud Solutions Services Company | Virtua Technologies</title>
+        <meta name="description" content="Cloud Solutions Services Company - Enterprise cloud migration, serverless architecture, and scalable infrastructure." />
+        <link rel="canonical" href="https://virtuatechnologies.com.au/cloud-solutions-services-company" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://virtuatechnologies.com.au/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Cloud Solutions Services Company",
+                  "item": "https://virtuatechnologies.com.au/cloud-solutions-services-company"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       <Navigation />
       <main>
         {/* Hero Section */}

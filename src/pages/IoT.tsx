@@ -12,6 +12,7 @@ import smartBuildingImg from "@/assets/projects/smart-building.jpg";
 import predictiveMaintenanceImg from "@/assets/projects/predictive-maintenance.jpg";
 import fleetTrackingImg from "@/assets/projects/fleet-tracking.jpg";
 import iotCoverImg from "@/assets/covers/iot-cover.jpg";
+import { Helmet } from 'react-helmet-async';
 
 const IoT = () => {
   const projects = [
@@ -102,6 +103,33 @@ const IoT = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>IoT Solutions Services Company | Virtua Technologies</title>
+        <meta name="description" content="IoT Solutions Services Company - Custom IoT development, smart automation, and connected device ecosystems." />
+        <link rel="canonical" href="https://virtuatechnologies.com.au/iot-solutions-services-company" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://virtuatechnologies.com.au/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "IoT Solutions Services Company",
+                  "item": "https://virtuatechnologies.com.au/iot-solutions-services-company"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       <Navigation />
       <main>
         {/* Hero Section */}
@@ -121,9 +149,9 @@ const IoT = () => {
               <p className="text-xl text-muted-foreground mb-8">
                 Internet of Things solutions connecting devices, collecting data, and enabling smart automation for your business.
               </p>
-              <Button 
-                variant="hero" 
-                size="lg" 
+              <Button
+                variant="hero"
+                size="lg"
                 onClick={() => {
                   const contactSection = document.getElementById('service-contact-form');
                   if (contactSection) {

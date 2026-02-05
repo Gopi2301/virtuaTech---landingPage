@@ -12,6 +12,7 @@ import saasPlatformImg from "@/assets/projects/saas-platform.jpg";
 import financialDashboardImg from "@/assets/projects/financial-dashboard.jpg";
 import collaborationAppImg from "@/assets/projects/collaboration-app.jpg";
 import gameDevCoverImg from "@/assets/covers/game-development-cover.jpg";
+import { Helmet } from 'react-helmet-async';
 
 const GameDevelopment = () => {
   const projects = [
@@ -102,6 +103,33 @@ const GameDevelopment = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Game Development Company | Virtua Technologies</title>
+        <meta name="description" content="Game Development Company - Full-cycle game development, cutting-edge graphics, and multiplayer experiences." />
+        <link rel="canonical" href="https://virtuatechnologies.com.au/game-development-company" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://virtuatechnologies.com.au/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Game Development Company",
+                  "item": "https://virtuatechnologies.com.au/game-development-company"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       <Navigation />
       <main>
         {/* Hero Section */}
