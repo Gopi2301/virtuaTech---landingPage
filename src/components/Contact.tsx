@@ -39,7 +39,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -68,7 +68,7 @@ const Contact = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'gopinaths2301@gmail.com', // Your recipient email
+          to: 'raghulan@virtuacorp.com.au', // Your recipient email
           subject: `New Contact Form Submission from ${formData.name}`,
           html: `
             <h2>New Contact Form Submission</h2>
@@ -92,7 +92,7 @@ const Contact = () => {
         company: '',
         message: ''
       });
-      
+
       toast({
         title: "Success!",
         description: "Your message has been sent successfully. We'll get back to you soon!",
@@ -130,9 +130,9 @@ const Contact = () => {
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name <span className="text-destructive">*</span>
                   </label>
-                  <Input 
-                    id="name" 
-                    placeholder="Your name" 
+                  <Input
+                    id="name"
+                    placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
                     disabled={isSubmitting}
@@ -142,10 +142,10 @@ const Contact = () => {
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Email <span className="text-destructive">*</span>
                   </label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="your@email.com" 
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="your@email.com"
                     value={formData.email}
                     onChange={handleChange}
                     disabled={isSubmitting}
@@ -156,9 +156,9 @@ const Contact = () => {
                 <label htmlFor="company" className="block text-sm font-medium mb-2">
                   Company
                 </label>
-                <Input 
-                  id="company" 
-                  placeholder="Your company name" 
+                <Input
+                  id="company"
+                  placeholder="Your company name"
                   value={formData.company}
                   onChange={handleChange}
                   disabled={isSubmitting}
@@ -168,19 +168,19 @@ const Contact = () => {
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Message <span className="text-destructive">*</span>
                 </label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Tell us about your project..." 
+                <Textarea
+                  id="message"
+                  placeholder="Tell us about your project..."
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
                   disabled={isSubmitting}
                 />
               </div>
-              <Button 
-                type="submit" 
-                variant="hero" 
-                size="lg" 
+              <Button
+                type="submit"
+                variant="hero"
+                size="lg"
                 className="w-full relative"
                 disabled={isSubmitting || isSuccess}
               >
@@ -205,7 +205,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                We'd love to hear about your project. Whether you're looking to build something 
+                We'd love to hear about your project. Whether you're looking to build something
                 new or improve an existing solution, our team is here to help.
               </p>
             </div>
@@ -242,8 +242,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold mb-1">Office</h4>
                   <p className="text-muted-foreground">
-                   903/50 Clarence St,<br />
-                   (9th level of building 50), Sydney NSW 2000
+                    903/50 Clarence St,<br />
+                    (9th level of building 50), Sydney NSW 2000
                   </p>
                 </div>
               </div>

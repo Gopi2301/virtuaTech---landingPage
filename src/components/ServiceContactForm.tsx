@@ -44,7 +44,7 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -73,7 +73,7 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'gopinaths2301@gmail.com',
+          to: 'raghulan@virtuacorp.com.au',
           subject: `New ${serviceName} Inquiry from ${formData.name}`,
           html: `
             <h2>New ${serviceName} Inquiry</h2>
@@ -97,7 +97,7 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
         company: "",
         message: ""
       });
-      
+
       toast({
         title: "Success!",
         description: "Your message has been sent successfully. We'll get back to you within 24 hours.",
@@ -177,10 +177,10 @@ const ServiceContactForm = ({ serviceName }: ServiceContactFormProps) => {
                     disabled={isSubmitting}
                   />
                 </div>
-                <Button 
-                  type="submit" 
-                  variant="hero" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="hero"
+                  size="lg"
                   className="w-full relative"
                   disabled={isSubmitting || isSuccess}
                 >
